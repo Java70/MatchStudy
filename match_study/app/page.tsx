@@ -19,11 +19,26 @@ const HeroSection = () => (
   </main>
 );
 
-const FeatureCard = ({ title, description }) => (
-  <div className="bg-slate-800 p-8 rounded-xl shadow-lg border border-slate-700 hover:border-purple-500 transition-transform hover:scale-105 transform">
-    <h3 className="text-2xl font-semibold text-white mb-4">{title}</h3>
+
+type FeatureCardProps = {
+  title: string;
+  description: string;
+  href: string;
+};
+
+const FeatureCard = ({ title, description, href }: FeatureCardProps) => (
+  <Link
+    href={href}
+    className="group block bg-slate-800 p-8 rounded-xl shadow-lg border border-slate-700 hover:border-purple-500 transition-transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-600 transform"
+  >
+    <h3 className="text-2xl font-semibold text-white mb-3 flex items-center justify-between">
+      {title}
+      <span className="text-purple-400 text-base opacity-0 group-hover:opacity-100 transition-opacity">
+        Ver más →
+      </span>
+    </h3>
     <p className="text-gray-400">{description}</p>
-  </div>
+  </Link>
 );
 
 const FeaturesSection = () => (
@@ -31,14 +46,25 @@ const FeaturesSection = () => (
     <div className="container mx-auto">
       <h2 className="text-4xl font-bold text-center text-purple-400 mb-12">Características</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <FeatureCard title="Videollamadas Integradas" description="Conéctate con tus compañeros en tiempo real para sesiones de estudio colaborativas sin salir de la plataforma." />
-        <FeatureCard title="Biblioteca de Materiales" description="Comparte y consulta apuntes, ejercicios y recursos educativos, creando una biblioteca de conocimiento colectivo." />
-        <FeatureCard title="Organización y Planificación" description="Planifica tus sesiones de estudio y proyectos en grupo de forma sencilla con nuestro calendario y herramientas de organización." />
+        <FeatureCard
+          title="Videollamadas Integradas"
+          description="Conéctate con tus compañeros en tiempo real para sesiones de estudio colaborativas sin salir de la plataforma."
+          href="/features/videollamadas"
+        />
+        <FeatureCard
+          title="Biblioteca de Materiales"
+          description="Comparte y consulta apuntes, ejercicios y recursos educativos, creando una biblioteca de conocimiento colectivo."
+          href="/features/biblioteca"
+        />
+        <FeatureCard
+          title="Organización y Planificación"
+          description="Planifica tus sesiones de estudio y proyectos en grupo con calendarios y tableros claros."
+          href="/features/organizacion"
+        />
       </div>
     </div>
   </section>
 );
-
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-slate-950 text-white font-sans">
@@ -51,3 +77,4 @@ export default function Home() {
     </div>
   );
 }
+

@@ -3,6 +3,8 @@
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { useState } from "react";
+import Link from "next/link";
+
 
 const LoginSection = () => {
   const [email, setEmail] = useState("");
@@ -49,7 +51,10 @@ const LoginSection = () => {
           Iniciar Sesión
         </button>
         <p className="text-gray-400 text-sm">
-          ¿No tienes cuenta? <a href="#" className="text-purple-400 hover:underline">Regístrate</a>
+          ¿No tienes cuenta?{" "}
+          <Link href="/signup" className="text-purple-400 hover:underline">
+            Regístrate
+          </Link>
         </p>
       </form>
     </main>

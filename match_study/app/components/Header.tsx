@@ -20,18 +20,16 @@ const Header = () => (
         </Link>
       </div>
       <nav className="flex gap-6">
-        <a
-          href="#features"
-          className="text-gray-300 hover:text-purple-400 transition-colors font-semibold"
-        >
-          Características
-        </a>
-        <a
-          href="#contact"
-          className="text-gray-300 hover:text-purple-400 transition-colors font-semibold"
-        >
-          Contacto
-        </a>
+          <Link href="/features" className="text-gray-300 hover:text-purple-400 transition-colors font-semibold">
+            Características
+          </Link>
+
+
+
+          <Link href="/contacto" className="text-gray-300 hover:text-purple-400 transition-colors font-semibold">
+            Contacto
+          </Link>
+
         {/* Botón de login usando Link */}
         <Link href="/login">
           <button className="px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition-colors font-semibold">
